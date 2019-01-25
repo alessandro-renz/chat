@@ -3,7 +3,7 @@ namespace Controllers;
 use Core\Controller;
 
 
-class HomeController extends Controller {
+class LoginController extends Controller {
 	public function index() 
 	{
 		$data = array();
@@ -11,7 +11,7 @@ class HomeController extends Controller {
 			header("Location: ".URL."login");
 			exit;
 		}else{
-			$this->loadTemplate("home", $data);
+			$this->loadTemplate("login", $data);
 		}
 		
 	}
