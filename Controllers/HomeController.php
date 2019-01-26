@@ -11,6 +11,7 @@ class HomeController extends Controller {
 			header("Location: ".URL."login");
 			exit;
 		}else{
+			
 			$this->loadTemplate("home", $data);
 		}
 		

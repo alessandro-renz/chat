@@ -13,7 +13,7 @@ class LoginController extends Controller {
 			
 		}	
 	}
-	public function chech(){
+	public function check(){
 		if(!empty($_POST['nick']) && !empty($_POST['password'])){
 			$nick = addslashes($_POST['nick']);
 			$pass = $_POST['password'];
