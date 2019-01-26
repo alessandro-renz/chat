@@ -54,4 +54,49 @@ class User extends Model{
 			return false;
 		}
 	}
+
+	public function insertNewUser($nick, $email, $pass)
+	{
+		if($this->checkNickname($nick) === true){
+			if($this->checkEmail($email) === true){
+				$sql = $this->db->prepare("INSERT INTO users SET nickname=:nick, email=:email, pass=:pass");
+				$sql->bindValue(":nick", $nick);
+				$sql->bindValue(":email", $email);
+				$sql->bindValue(":pass", $pass);
+				$sql->execute();
+
+				return "success";
+			}else{
+				return "email_error";
+			}
+		}else{
+			return "nick_error";
+		}
+
+	}
+
+	private function checkNickname($nick)
+	{
+		$sql = $this->db->prepare("SELECT * FROM users WHERE nickname=:nick");
+		$sql->bindValue(":nick", $nick);
+		$sql->execute();
+
+		if($sql->rowCount() > 0){
+			return false;
+		}else{
+			return true;
+		}
+	}
+	private function checkEmail($email)
+	{
+		$sql = $this->db->prepare("SELECT * FROM users WHERE email=:email");
+		$sql->bindValue(":email", $email);
+		$sql->execute();
+
+		if($sql->rowCount() > 0){
+			return false;
+		}else{
+			return true;
+		}
+	}
 }
