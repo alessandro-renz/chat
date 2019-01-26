@@ -7,11 +7,9 @@ class LoginController extends Controller {
 	public function index() 
 	{
 		$data = array();
-		if(!isset($_SESSION['hash_user'])){
+		$this->loadView("login", $data);
 			
-			$this->loadTemplate("login", $data);
 			
-		}	
 	}
 	public function check(){
 		if(!empty($_POST['nick']) && !empty($_POST['password'])){

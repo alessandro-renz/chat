@@ -7,7 +7,7 @@ class RegisterController extends Controller {
 	public function index() 
 	{
 		$data = array();
-		$this->loadTemplate("register", $data);
+		$this->loadView("register", $data);
 	}
 	
 	
