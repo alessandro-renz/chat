@@ -22,7 +22,7 @@ class HomeController extends Controller {
 	public function index() 
 	{
 		$data = array();
-		$data['groups'] = $this->instance_group->getGroup();
+		$data['groups'] = $this->instance_user->getGroup();
 
 		$this->loadTemplate("home", $data);
 	}
@@ -33,6 +33,12 @@ class HomeController extends Controller {
 			$data = $this->instance_group->getMsgsById($_POST['id_group']);
 		}
 		echo json_encode($data);
+	}
+
+	public function sair(){
+		unset($_SESSION['hash_user']);
+		header("Location: ".URL."login");
+		exit;
 	}
 	
 	

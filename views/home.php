@@ -14,16 +14,20 @@
         <i class="fas fa-plus text-light"></i>
       </div>
     </div>
-    <div class="col-sm-8 m-0 p-0 bg-light">
+    <div class="col-sm-8 m-0 p-0 bg-light d-flex">
       <div class="area-msg">
           <div class="group-text">
             <?php //foreach($msgs as $m): ?>
-            <h4 class="text-primary pl-2 mb-2"><?=$g['name_group']?></h4>
+            <h4 class="text-primary pl-2 mb-2"></h4>
             <p class="name-user"><strong>Carlos</strong></p>
             <p class="user-text"><i>ola amigos tudo bem</i></p>
             <p class="data-text">27/01/2019 07:08am</p>
             <?php //endforeach; ?>
           </div>
+      </div>
+
+      <div class="btn-acoes ml-auto">
+        <a href="<?=URL."home/sair"?>" class="btn btn-danger">Sign out</a>
       </div>
 
       <div class="user-write">

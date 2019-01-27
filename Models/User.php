@@ -55,6 +55,26 @@ class User extends Model{
 
 	}
 
+	public function verifyUser()
+	{
+		if(isset($_SESSION['hash_user'])){
+			$hash = $_SESSION['hash_user'];
+			$sql = $this->db->prepare("SELECT * FROM users WHERE hash=:hash");
+			$sql->bindValue(":hash", $hash);
+			$sql->execute();
+
+			if($sql->rowCount() > 0){
+				$user = $sql->fetch();
+				$this->id = $user['id']; 
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+			return false;
+		}
+	}
+
 	private function checkNickname($nick)
 	{
 		$sql = $this->db->prepare("SELECT * FROM users WHERE nickname=:nick");
@@ -87,6 +107,20 @@ class User extends Model{
 			return false;
 		}
 	}
+
+	public function getGroup(){
+		$data = array();
+
+		$sql = $this->db->prepare("SELECT *,(select name from groups where msgs.id_group = groups.id) as name_group FROM msgs WHERE id_user=:id_user");
+		$sql->bindValue(":id_user", $this->id);
+		$sql->execute();
+
+		if($sql->rowCount() > 0){
+			$data = $sql->fetchAll();
+		}
+
+		return $data;
+	} 
 
 	
 }
