@@ -20,12 +20,15 @@ class RegisterController extends Controller {
 				if($u->insertNewUser($nick, $email, $pass) == "nick_error"){
 					$data['msg'] = "Este nickname já existe!";
 					$this->loadView("register", $data);
+					exit;
 				}else if($u->insertNewUser($nick, $email, $pass) == "email_error"){
 					$data['msg'] = "Este email já existe!";
 					$this->loadView("register", $data);
+					exit;
 				}
+
 				$u->insertNewUser($nick, $email, $pass);	
-				header("Location: ".URL."register/success");
+				
 			}else{
 				$data['msg'] = "Não é permitido espaços ou caracteres especiais!";
 				$this->loadView("register", $data);

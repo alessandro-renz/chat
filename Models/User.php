@@ -45,7 +45,7 @@ class User extends Model{
 				$sql->bindValue(":pass", $pass);
 				$sql->execute();
 
-				return "success";
+				header("Location: ".URL."register/success");
 			}else{
 				return "email_error";
 			}

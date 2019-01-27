@@ -34,8 +34,8 @@ function pushText(id_group){
 				var html = 	"<p class='name-user'><strong>"+res[i].name_user+"</strong></p>"+
 				            "<p class='user-text'>"+res[i].msg+"</i></p>"+
 				            "<p class='data-text'>"+res[i].date_msg+"</p>";
-				$(".group-text").append(html);              
 			}
+			$(".group-text").append(html);
 		}
 
 	});
