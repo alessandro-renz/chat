@@ -7,7 +7,7 @@ class Group extends Model{
 		$data = array();
 
 		$sql = $this->db->prepare("SELECT *,(select name from groups where msgs.id_group = groups.id) as name_group FROM msgs WHERE id_user=:id_user");
-		$sql->bindValue(":id_user", $this->id);
+		$sql->bindValue(":id_user", $this->id_user);
 		$sql->execute();
 
 		if($sql->rowCount() > 0){

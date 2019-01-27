@@ -5,13 +5,14 @@ use Models\User;
 use Models\Group;
 
 class HomeController extends Controller {
-	private $instance_user = new User;
-	private $instance_group = new Group;
+	private $instance_user;
+	private	$instance_group;
 
 	public function __construct()
 	{
-		$this->instance_group = new Group();
-		$this->instance_group = new User();
+		$this->instance_user = new User;
+		$this->instance_group = new Group;
+
 		if(!$this->instance_user->verifyUser()){
 			header("Location: ".URL."login");
 			exit;
