@@ -29,10 +29,12 @@ class HomeController extends Controller {
 
 	public function getMsg(){
 		$data = array();
-		if(!empty($_POST['id_group'])){
-			$data = $this->instance_group->getMsgsById($_POST['id_group']);
+		if(!empty($_POST['id'])){
+			$data = $this->instance_group->getMsgsById($_POST['id']);
 		}
+
 		echo json_encode($data);
+		
 	}
 
 	public function sair(){

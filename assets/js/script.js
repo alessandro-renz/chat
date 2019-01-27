@@ -19,3 +19,24 @@ $(function(){
 		
 	});
 });
+
+function pushText(id_group){
+	
+	$.ajax({
+		type:"POST",
+		url:"home/getMsg",
+		dataType:"json",
+		data:{id:id_group},
+		success:function(res){
+			for(i=0;i<res.length;i++){
+				$("#title_chat").html(res[i].name_group);
+				
+				var html = 	"<p class='name-user'><strong>"+res[i].name_user+"</strong></p>"+
+				            "<p class='user-text'>"+res[i].msg+"</i></p>"+
+				            "<p class='data-text'>"+res[i].date_msg+"</p>";
+				$(".group-text").append(html);              
+			}
+		}
+
+	});
+}
