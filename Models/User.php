@@ -99,4 +99,12 @@ class User extends Model{
 			return true;
 		}
 	}
+
+	public function validateExp($nick){
+		if(preg_match('/^[a-z0-9]+$/', $nick) == true){
+			return true;
+		}else{
+			return false;
+		}
+	}
 }
