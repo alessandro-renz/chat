@@ -15,7 +15,7 @@ class User extends Model{
 		if($sql->rowCount() > 0){
 			$user = $sql->fetch();
 			if(password_verify($pass, $user['pass']) === true){
-				$this->hash = md5(time().rand(0,999));
+				$this->hash = md5(time().rand(0,999).$user['id']);
 				$this->insertHash($user['id'] ,$this->hash);
 				$_SESSION['hash_user'] = $this->hash;
 				return true;
