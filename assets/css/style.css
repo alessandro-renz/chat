@@ -73,3 +73,32 @@ nav{
 	color: black;
 
 }
+.area-msg{
+	position: fixed;
+	top: 0;
+	
+	width: 100%;
+	height: 600px;
+	margin: 0;
+	padding: 0;
+}
+
+.group-text{
+	padding: 15px;
+
+}
+.group-text .name-user{
+	padding-left: 10px;
+	margin: 0px;
+	font-size: 18px;
+}
+.group-text .user-text{
+	padding-left: 10px;
+	margin: 0px;
+	font-size: 16px;
+}
+.group-text .data-text{
+	padding-left: 10px;
+	margin: 0px;
+	font-size: 14px;
+}

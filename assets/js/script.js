@@ -19,3 +19,7 @@ $(function(){
 		
 	});
 });
+
+function pushText(id_group){
+	$.getJSON("");
+}
